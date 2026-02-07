@@ -1,0 +1,154 @@
+/* 
+Donovan Stanley jr
+Week 3: CSS Positioning and Layout
+025/07/2026
+ */
+
+
+* {                        /*Kinda works like a reset to add the  styling */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', serif;
+}
+
+body {
+    overflow-x: hidden;  /* This will stop the horizontal scroll caused by widths */
+}
+
+
+#jumpMenu {          /* This checks off the first requirment by the jump menu positioned on the left, spanning entire height */
+    position: fixed; /* This will hold the menu still while scrolling */
+    top: 0;
+    left: 0;
+    width: 200px;   /* Keeps the width for the sidebar */
+    height: 100vh;  /* For the full viewport height */
+    background-color: #DAA520; /* This color seems like it matches lol */
+    padding: 20px;
+    overflow-y: auto;/* Will add scrolling in the menu if it gets too long */
+    border-right: 1px solid #000;
+    z-index: 100;
+}
+
+#jumpMenu h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+#jumpMenu a {
+    text-decoration: underline;
+    color: blue;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+main {                  /* The main chagnges or adjutments */
+    margin-left: 200px; /* Moves all content to the right so it wont get stuck behind the sidebar */ 
+    padding-top: 140px; /* Added top padding so the wont get stuck behind the fixed header */
+    padding-bottom: 100px; /* Needs space for the footer/thank you box */
+    background-color: #fff;
+}
+
+header {               /* For the second requirment the header needs to always be up top and unaffected by scrolling */
+    position: fixed;   /* This will pin header to the view */
+    top: 0;
+    left: 200px;       /* Will starts where the sidebar ends */
+    width: calc(100% - 200px); /* For the third requirment: Header gotta be centered (does not count sidebar space)/Width is 100% of screen wiothout the  the sidebar */
+    z-index: 50;       /* makes sure it sits on top of scrolling articles */
+    background-color: white;
+}
+
+
+header p {                   /* Will ad the styling the MyBlog.com */
+    background-color: red;
+    color: black;
+    font-size: 2em;
+    text-align: center;      /* Centers the text with the header width */
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+header nav {                  /* Styles the navigation buttons(Had to comeback to add the black spaces, almost submitted with them! */
+    background-color: black;/* First change/ will make sure the new gaps are black*/ 
+    display: flex;
+    justify-content: space-between; /* Spreads buttons out evenly */
+    padding: 0 20px;          /* Came back for a third time to make sure the end of the nav has the black gap*/
+    gap: 20px;                /* This will contil the  width of the black box inbetween the nav buttons*/
+}
+
+header nav button {   /* more changes had to be made here to fix the nav i forgot!*/
+    background-color: blue;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-family: sans-serif;
+    padding: 15px 0; /* Addding to make sure the buttons are tall enough*/
+    flex-grow: 1;    /* Will make sure the buttons change sizes bassed on the width*/
+}
+
+h1 {                   /* here we go, the main heading/ Recent Journal Articles */
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+
+#container {         /* For the 5 & 6 requirments, these organize the articles and reorganize on resize */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));/* Adding this was cool tbh,this responsive line creates columns that automatically fit and wrap based on the screen width */
+    gap: 40px;       /* Adds space between grid items */
+    padding: 0 40px; /* more padding */
+}
+
+article {                    /* Styles the individual articles */
+    background-color: #fff;/* Decided to add this to help visualize the grid, i think this hleps make it look more like the pictures we got */
+}
+
+article h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+article p {
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+article a {
+    color: blue;
+    text-decoration: underline;
+}
+
+
+#thanks {            /* Requirment 4: "Thank you" block always shown in bottom-right  */
+    position: fixed; /* Pins the note  to the viewport */
+    bottom: 0;
+    right: 0;
+    background-color: #87CEEB; /* looks like light blue */
+    padding: 20px 40px;
+    font-size: 2em;
+    border: 1px solid #000;
+    z-index: 200;  /* Makes sure it is above everything */
+    margin: 0;     /* Removes the default paragraph margins */
+}
+
+footer {           /* The footer styling*/
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+address div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+}
